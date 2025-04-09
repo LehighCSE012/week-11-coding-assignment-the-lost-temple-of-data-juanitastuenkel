@@ -23,7 +23,7 @@ def load_location_notes(tsv_filepath):
 
 def extract_journal_dates(journal_text):
     """Extracts all dates in MM/DD/YYYY format from the journal text. """
-    pattern = r"[01-12]/[01-31]/\d{4}"
+    pattern = r"(0[1-9]|1[012])/(0[1-9]|[12][0-9]|3[01])/\d{4}"
     dates = re.findall(pattern, journal_text)
     return dates
 
