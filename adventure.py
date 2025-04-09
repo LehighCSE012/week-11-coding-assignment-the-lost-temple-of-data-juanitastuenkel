@@ -1,7 +1,7 @@
 """ Week 11 Assignment Juanita Stuenkel"""
 
-import pandas as pd
 import re
+import pandas as pd
 
 def load_artifact_data(excel_filepath):
     """Reads artifact data from a specific sheet ('Main Chamber') in an Excel file. """
@@ -10,9 +10,6 @@ def load_artifact_data(excel_filepath):
         return df_artifact
     except FileNotFoundError:
         print(f"File not found at '{excel_filepath}'")
-        return None
-    except Exception as e:
-        print(f"An error occurred: {e}")
         return None
 
 def load_location_notes(tsv_filepath):
@@ -23,13 +20,10 @@ def load_location_notes(tsv_filepath):
     except FileNotFoundError:
         print(f"File not found at '{tsv_filepath}'")
         return None
-    except Exception as e:
-        print(f"An error occurred: {e}")
-        return None
 
 def extract_journal_dates(journal_text):
     """Extracts all dates in MM/DD/YYYY format from the journal text. """
-    pattern = r"\d{2}/\d{2}/\d{4}"
+    pattern = r"[01-12]/[01-31]/\d{4}"
     dates = re.findall(pattern, journal_text)
     return dates
 
